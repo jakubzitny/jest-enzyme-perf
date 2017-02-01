@@ -1,0 +1,25 @@
+{
+    "collectCoverageFrom": [
+        "src/**/*.{js,jsx}"
+    ],
+    "moduleNameMapper": {
+        "^react-native$": "react-native-web"
+    },
+    "setupFiles": [
+        "./node_modules/react-scripts/config/polyfills.js"
+    ],
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+        "<rootDir>[/\\\\](build|docs|node_modules)[/\\\\]"
+    ],
+    "testURL": "http://localhost",
+    "transform": {
+        "^(?!.*\\.(js|jsx|css|json)$)": "./node_modules/react-scripts/config/jest/fileTransform.js",
+        "^.+\\.(js|jsx)$": "./node_modules/react-scripts/config/jest/babelTransform.js",
+        "^.+\\.css$": "./node_modules/react-scripts/config/jest/cssTransform.js"
+    },
+    "transformIgnorePatterns": [
+        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "testEnvironment": "jsdom"
+}
