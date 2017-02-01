@@ -5,7 +5,6 @@ import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 
 import App from './App';
-import Big from './Big';
 
 chai.use(chaiEnzyme())
 
@@ -22,8 +21,20 @@ it('renders without crashing', () => {
   expect(wrapper).to.have.descendants('p');
 });
 
-it('renders big component crashing', () => {
-  const wrapper = mount(<Big />);
+it('shows flag after button click', () => {
+  const wrapper = mount(<App />);
 
-  expect(wrapper).to.have.descendants('p');
+  expect(wrapper).to.not.have.descendants('.flag')
+  wrapper.find('button').simulate('click')
+  expect(wrapper).to.have.descendants('.flag')
 });
+
+it('shows flag after button click 2', () => {
+  const wrapper = mount(<App />);
+
+  wrapper.find('button').simulate('click')
+  setImmediate(() => {
+    expect(wrapper).to.have.descendants('.flag')
+  })
+});
+

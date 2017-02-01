@@ -3,7 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    flag: false,
+  }
+
+  _handleClick = () => {
+    this.setState({ flag: !this.state.flag })
+  }
+
   render() {
+    let flag = null
+    if (this.state.flag) {
+      flag = <div className="flag"><p>Flag</p></div>
+    }
     return (
       <div className="App">
         <div className="App-header">
@@ -13,6 +25,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <button onClick={this._handleClick}>butt</button>
+        {flag}
       </div>
     );
   }
